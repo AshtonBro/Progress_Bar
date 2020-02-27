@@ -8,6 +8,7 @@
 		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="css/style.css">
+	<script src="script.js"></script>
 	<title>ProgressBar</title>
 </head>
 
@@ -15,16 +16,21 @@
 	<div class="main">
 		<section>
 			<conteiner class="progress-bar">
-				<div class="progress-bar_main">
-					
-				</div>
+				<div class="progress-bar_main"></div>
 			</conteiner>
 		</section>
 	</div>
-</body>
-<script src="script.js"></script>
+
+
 <script>
-	
+	const newBar = new ProgressBar();
+
+	newBar.init('.progress-bar_main');
+
+	const newBar2 = new ProgressBar({});
+
+	newBar2.init();
 </script>
 
+</body>
 </html>
