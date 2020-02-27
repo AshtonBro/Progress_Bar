@@ -18,6 +18,7 @@
 			<conteiner class="progress-bar">
 				<div class="progress progress-bar_first"></div>
 				<div class="progress progress-bar_second"></div>
+				<div class="progress progress-bar_three"></div>
 			</conteiner>
 		</section>
 	</div>
@@ -32,12 +33,20 @@
 
 	newBar.init('.progress-bar_first');
 
-	const newBar2 = new ProgressBar({
-		height: 70,
-
-	});
+	const newBar2 = new ProgressBar({});
 
 	newBar2.init('.progress-bar_second');
+
+	const newBar3 = new ProgressBar({
+		startPoint: 0,
+        endPoint: 100,
+        background: 'yellow',
+        height: '70',
+        textColor: 'black',
+        border: '3px solid green',
+	});
+
+	newBar3.init('.progress-bar_three');
 
 </script>
 

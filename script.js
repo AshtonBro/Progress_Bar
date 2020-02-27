@@ -3,8 +3,8 @@
 class ProgressBar{
     constructor (option = {}) {
         const {
-            startPoint = 10,
-            endPoint = 30,
+            startPoint = 0,
+            endPoint = 100,
             background = 'black',
             height = '70',
             textColor = 'white',
@@ -29,7 +29,7 @@ class ProgressBar{
         progressBar.append(bar);
         progressBar.style.width = '100%';
         progressBar.style.border = this.border;
-        animateBar(bar);
+        this.animateBar(bar);
         return progressBar;
     }
 
@@ -56,8 +56,10 @@ class ProgressBar{
             if (this.startPoint < this.endPoint){
                 this.startPoint++;
                 this.stateProgress(elem);
+                requestAnimationFrame(animate);
             }
         };
+        requestAnimationFrame(animate);
     }
 }
 
