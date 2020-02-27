@@ -3,12 +3,12 @@
 class ProgressBar{
     constructor (option = {}) {
         const {
-            startPoint = 0,
-            endPoint = 20,
-            background = 'red',
-            height = 20,
-            textColor = 'black',
-            border = '1px solid black',
+            startPoint = 10,
+            endPoint = 30,
+            background = 'black',
+            height = '70',
+            textColor = 'white',
+            border = '5px solid blue',
         } = option;
 
         this.startPoint = startPoint;
@@ -20,11 +20,17 @@ class ProgressBar{
     }
 
     init(selector) {
-        document.querySelector(selector);
+        document.querySelector(selector).append(this.createProgressBar());
     }
 
     createProgressBar(){
         const progressBar = document.createElement('div');
+        const bar = this.createBar();
+        progressBar.append(bar);
+        progressBar.style.width = '100%';
+        progressBar.style.border = this.border;
+        animateBar(bar);
+        return progressBar;
     }
 
     createBar() {
@@ -32,7 +38,26 @@ class ProgressBar{
         bar.style.cssText = `
             text-align: center;
             background-color: ${this.background};
+            height: ${this.height}px;
+            line-height: ${this.height}px;
+            color: ${this.textColor};
         `;
+        this.stateProgress(bar);
+        return bar;
+    }
+
+    stateProgress(elem) {
+        elem.style.width = `${this.startPoint}%`;
+        elem.textContent = `${this.startPoint}%`;
+    }
+
+    animateBar(elem) {
+        const animate = () => {
+            if (this.startPoint < this.endPoint){
+                this.startPoint++;
+                this.stateProgress(elem);
+            }
+        };
     }
 }
 

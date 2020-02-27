@@ -16,20 +16,29 @@
 	<div class="main">
 		<section>
 			<conteiner class="progress-bar">
-				<div class="progress-bar_main"></div>
+				<div class="progress progress-bar_first"></div>
+				<div class="progress progress-bar_second"></div>
 			</conteiner>
 		</section>
 	</div>
 
 
 <script>
-	const newBar = new ProgressBar();
 
-	newBar.init('.progress-bar_main');
+	const newBar = new ProgressBar({
+		startPoint: 10,
 
-	const newBar2 = new ProgressBar({});
+	});
 
-	newBar2.init();
+	newBar.init('.progress-bar_first');
+
+	const newBar2 = new ProgressBar({
+		height: 70,
+
+	});
+
+	newBar2.init('.progress-bar_second');
+
 </script>
 
 </body>
