@@ -28,22 +28,25 @@
 
 	const newBar = new ProgressBar({
 		startPoint: 10,
-
 	});
 
 	newBar.init('.progress-bar_first');
 
-	const newBar2 = new ProgressBar({});
+	const newBar2 = new ProgressBar({
+		startPoint: 20,
+		background: 'lightgrey',
+		textColor: 'black',
+	});
 
 	newBar2.init('.progress-bar_second');
 
-	const newBar3 = new ProgressBar({
+	const newBar3 = new RoundedProgressBar({
 		startPoint: 0,
         endPoint: 100,
-        background: 'yellow',
+        background: 'violet',
         height: '70',
         textColor: 'black',
-        border: '3px solid green',
+		border: '3px solid green',
 	});
 
 	newBar3.init('.progress-bar_three');

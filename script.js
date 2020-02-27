@@ -1,7 +1,7 @@
 'use strict';
 
-class ProgressBar{
-    constructor (option = {}) {
+class ProgressBar {
+    constructor(option = {}) {
         const {
             startPoint = 0,
             endPoint = 100,
@@ -23,7 +23,7 @@ class ProgressBar{
         document.querySelector(selector).append(this.createProgressBar());
     }
 
-    createProgressBar(){
+    createProgressBar() {
         const progressBar = document.createElement('div');
         const bar = this.createBar();
         progressBar.append(bar);
@@ -53,7 +53,7 @@ class ProgressBar{
 
     animateBar(elem) {
         const animate = () => {
-            if (this.startPoint < this.endPoint){
+            if (this.startPoint < this.endPoint) {
                 this.startPoint++;
                 this.stateProgress(elem);
                 requestAnimationFrame(animate);
@@ -63,4 +63,21 @@ class ProgressBar{
     }
 }
 
+class RoundedProgressBar extends ProgressBar {
+    constructor(option = {}) {
+        super(option);
+        const { rounded = '25px'} = option;
+        this.rounded = rounded;
+    }
 
+    createProgressBar() {
+        const progressBar = super.createProgressBar();
+        this.roundedBar(progressBar);
+        return progressBar;
+    }
+
+    roundedBar(elem) {
+        elem.style.borderRadius = this.rounded;
+        elem.firstChild.style.borderRadius = this.rounded;
+    }
+}
